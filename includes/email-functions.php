@@ -186,7 +186,7 @@ function rcp_filter_email_tags( $message, $user_id, $display_name ) {
 	$message = str_replace('%subscription_key%', rcp_get_subscription_key($user_id), $message);
 	$message = str_replace('%amount%', html_entity_decode( rcp_currency_filter( $rcp_payments->last_payment_of_user( $user_id ) ), ENT_COMPAT, 'UTF-8' ), $message);
 
-	return apply_filters( 'rcp_email_tags', htmlspecialchars( $message ), $user_id );
+	return apply_filters( 'rcp_email_tags', $message, $user_id );
 }
 
 /**
